@@ -1,0 +1,7 @@
+{
+  "name": "PMDM02_Tarea1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
