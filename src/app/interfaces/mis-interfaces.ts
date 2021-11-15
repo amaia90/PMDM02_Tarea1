@@ -4,7 +4,7 @@ export interface INoticias {
   articles: IArticulo[];
 }
 
-interface IArticulo {
+export interface IArticulo {
   source: IFuente;
   author?: string;
   title: string;

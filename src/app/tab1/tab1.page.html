@@ -1,11 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Noticias</ion-title>
+    <ion-title>Mis Noticias</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <ion-list *ngFor="let noticia of gestionNoticias.getNoticias()">
-    <ion-label>{{noticia.status}}</ion-label>
+    
+    <a href="http://www.google.es" style="color:#FF0000" ><ion-label>{{noticia.source.name}}</ion-label></a><br>
+        <ion-item>
+    <ion-checkbox (ionChange)="valorCheckBox($event)"></ion-checkbox> 
+    <ion-label>{{noticia.title}}</ion-label>
+  </ion-item>
+  
   </ion-list>
 </ion-content>
