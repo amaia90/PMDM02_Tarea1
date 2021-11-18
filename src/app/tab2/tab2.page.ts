@@ -67,8 +67,9 @@ borrar(noticia){
   let noticiaEncontrada:IArticulo=this.gestionNoticias.articuloIndividual.find(function(cadaNoticia){return cadaNoticia.publishedAt==noticia.publishedAt}) //Valor es cada uno de las personas del array
   console.log(noticiaEncontrada)
   let indice=this.gestionNoticias.articuloIndividual.indexOf(noticiaEncontrada);
-  console.log(indice);
-  this.gestionNoticias.articuloIndividual.slice();
+  console.log("Este es el índice que borraré del array"+ indice);
+  this.gestionNoticias.articuloIndividual.slice(indice)
+  console.log("aqui abajo la noticia después de borrar")
   console.log(this.gestionNoticias.articuloIndividual)
 
 }

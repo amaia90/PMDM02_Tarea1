@@ -9,7 +9,7 @@ import { Component, OnInit} from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 
-export class Tab1Page implements OnInit{
+export class Tab1Page implements OnInit{ //Declaro las variables de IArticulo
   source:IFuente;
   title:string;
   description:string;
@@ -17,33 +17,25 @@ export class Tab1Page implements OnInit{
   urlToImage:string;
   publishedAt:string;
   valueBook:string;
-  //checked : boolean = false;
-  constructor(public gestionNoticias:GestionNoticiasService) {}
-  /*ngOnInit(): void{
-    this.gestionNoticias.getNoticiasFichero().subscribe(noticias=>{console.log(noticias);});
-  }*/
+
+  constructor(public gestionNoticias:GestionNoticiasService) {} //Declaración de un atributo llamado gestionNoticias que es de tipo GestionPersonasSErvice o inyectamos el servicio
+  
   ngOnInit() {
 
   }
-  valorCheckBox(event, noticia){
+  valorCheckBox(event, noticia){ //Función que trae del html el evento y la noticia
     console.log("ts"+event.detail.checked);//Con ésta línea me dice si está en true o false
     //let checked=event.detail.checked;
     //console.log(checked);
-    if(event.detail.checked=true){
-      /*this.gestionNoticias.checked="si";
-      console.log("meter en variable service SI"+this.gestionNoticias.checked)*/
+    if(event.detail.checked=true){ //Si el resultado de checked es igual a true, es decir está activado
+      //ejecutar función insertarArticulo que está en el servicio gestionNoticias 
       this.gestionNoticias.insertarArticulo(noticia.source, noticia.title, noticia.description, noticia.url, noticia.urlToImage, noticia.publishedAt);
       
-    } if(event.detail.checked=false){
+    } if(event.detail.checked=false){ //Si no está activado o es igual a false
       this.gestionNoticias.checked="no";
       console.log("meter en variable service NO"+this.gestionNoticias.checked)
       
       
     }
   }
-  /*onClick(){
-        
-        this.gestionNoticias.insertarArticulo(nuevoArticulo.source, articulo.title, articulo.description, articulo.title, articulo.title, articulo.title );
-        console.log("aqui está variable description"+this.description);
-      }*/
 }

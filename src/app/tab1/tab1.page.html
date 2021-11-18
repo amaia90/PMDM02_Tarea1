@@ -5,14 +5,16 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-list *ngFor="let noticia of gestionNoticias.getNoticias()">
+  <ion-list *ngFor="let noticia of gestionNoticias.getNoticias()"><!--Ejecueto el método getNoticias del service el cual a través de la propiedad creada en el ts y llamada gestionNoticias puedo acceder a él, la variable que recorreré a través del ngFor la llamo noticia-->
     
-    <a href="http://www.google.es" style="color:#FF0000" ><ion-label>{{noticia.source.name}}</ion-label></a><br>
+    <a href="{{noticia.url}}" style="color:#FF0000" ><ion-label>{{noticia.source.name}}</ion-label></a><br>
+    <!--En la línea superior creo un enlace al pulsar en él nos lleve a cada una de las noticias dónde 
+    se sitúe, a través de las llaves interpolación entro en el campo url, mostrándolo por pantalla-->
         <ion-item>
     <ion-checkbox (ionChange)="valorCheckBox($event, noticia)"></ion-checkbox>   
-    <!-- <ion-button expand="block" (click)="onClick()">Insertar</ion-button> -->
+    <!--Creo un botón de checkbox que tiene el evento ionChange que lo que haces es saltar cuando el valor cambia
+    éntonces se ejecutará la función valorCheckBox que llevará el evento y la noticia-->
     <ion-label>{{noticia.description}}</ion-label> 
-    <!-- <ion-checkbox (ionChange)="gestionNoticias.insertarArticulo(this.source, noticia.title, noticia.description, noticia.url, noticia.urlToImage, this.publishedAt);valorCheckBox($event)"></ion-checkbox>  -->
   </ion-item>
   
   </ion-list>
