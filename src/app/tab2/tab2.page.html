@@ -32,7 +32,7 @@
   
   
   <ion-content class="ion-padding">
-    <ion-card *ngFor="let noticia of gestionNoticias.getNoticiaIndividual()">
+    <ion-card *ngFor="let noticia of gestionNoticias.articuloIndividual">
       <ion-card-content>
       <ion-label style="text-transform:uppercase" >{{noticia.source.id}}</ion-label><p></p>
       
@@ -41,10 +41,14 @@
       <ion-label>
         <ion-img src="{{noticia.urlToImage}}"></ion-img>
       </ion-label>
-      <ion-label>{{noticia.description}}</ion-label>
+      <ion-label>{{noticia.description}} </ion-label>
       <ion-label><br>
         <a href ="{{noticia.url}}">Leer</a>
+        
+        <button ion-button icon-left>
+        <ion-icon name="trash-outline" (click)="onClick();borrar(noticia)"></ion-icon></button>
       </ion-label></ion-card-content></ion-card></ion-content>
+      
       <!-- </ion-item> 
     <ion-item> <label>
       <img style="width: auto;height: auto;" src="{{noticia.urlToImage}}">

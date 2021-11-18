@@ -15,7 +15,7 @@ export interface IArticulo {
   content?: string;
 }
 
-interface IFuente {
+export interface IFuente {
   id?: string;
   name: string;
 }

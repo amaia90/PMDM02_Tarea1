@@ -9,8 +9,10 @@
     
     <a href="http://www.google.es" style="color:#FF0000" ><ion-label>{{noticia.source.name}}</ion-label></a><br>
         <ion-item>
-    <ion-checkbox (ionChange)="valorCheckBox($event)"></ion-checkbox> 
-    <ion-label>{{noticia.title}}</ion-label>
+    <ion-checkbox (ionChange)="valorCheckBox($event, noticia)"></ion-checkbox>   
+    <!-- <ion-button expand="block" (click)="onClick()">Insertar</ion-button> -->
+    <ion-label>{{noticia.description}}</ion-label> 
+    <!-- <ion-checkbox (ionChange)="gestionNoticias.insertarArticulo(this.source, noticia.title, noticia.description, noticia.url, noticia.urlToImage, this.publishedAt);valorCheckBox($event)"></ion-checkbox>  -->
   </ion-item>
   
   </ion-list>

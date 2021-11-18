@@ -4,16 +4,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 //import {map} from 'rxjs/operators';
-import { IArticulo, INoticias } from '../interfaces/mis-interfaces';
+import { IArticulo, INoticias, IFuente } from '../interfaces/mis-interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GestionNoticiasService {
   articulo:IArticulo[]=[];
+  articuloIndividual:IArticulo[]=[];
   //noticias:INoticias[]=[];
   prueba:[];
-  checked:string="";
+  checked:string;
 
 
 
@@ -23,9 +24,8 @@ export class GestionNoticiasService {
     //this.getLeerNoticia();
     this.getNoticias();
     //this.getChekeado;
-    this.getNoticiaIndividual();
-    this.conocerValorChecked();
-    
+    //this.getNoticiaIndividual();
+    this.getConocerValorChecked();
   }
 
   getNoticiasFichero(){
@@ -51,20 +51,35 @@ export class GestionNoticiasService {
     
     
 }
-  conocerValorChecked(){
-    console.log("valor service"+this.checked);
+  getConocerValorChecked(){
+    console.log("Este es el valor del checked"+this.checked);
+
   }
   getNoticias(){
     return this.articulo;
   }
-  getNoticiaIndividual(){ //Función que muestra las noticias
+  /*getNoticiaIndividual(){ //Función que muestra las noticias
       if(this.checked="si"){
     return this.articulo;
       }else if(this.checked="no"){this.articulo=[]
       console.log("prueba"+this.articulo)}
 
-  }
-  
+  }*/
+    insertarArticulo(source:IFuente, title:string, description:string, url:string, urlToImage:string, publishedAt:string){
+      let nuevoArticulo:IArticulo={
+        source:source,
+        title:title,
+        description:description,
+        url:url,
+        urlToImage:urlToImage,
+        publishedAt:publishedAt,
+
+      };
+      this.articuloIndividual.push(nuevoArticulo);
+      console.log(this.articuloIndividual);
+      console.log(this.checked);
+
+    }
   /*getChekeado(){
     if(this.checked=="si"){
       let datosFichero: Observable<IArticulo[]>;
@@ -81,6 +96,11 @@ export class GestionNoticiasService {
 
     }
   }*/
-  
+  borrar(noticia){
+    let noticiaEncontrada:IArticulo=this.articuloIndividual.find(function(cadaPersona){return cadaPersona.publishedAt==noticia.publishedAt}) //Valor es cada uno de las personas del array
+    console.log(noticiaEncontrada)
+    let indice=this.articuloIndividual.indexOf(noticiaEncontrada);
+    console.log(indice);
+    this.articuloIndividual.shift();}
 }
 
