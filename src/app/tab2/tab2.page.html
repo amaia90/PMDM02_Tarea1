@@ -1,63 +1,27 @@
-<!-- <ion-card>  
-<ion-card-header>
-    <ion-card-title>Mis Noticias</ion-card-title>
-</ion-card-header></ion-card>
 
 <ion-card>
-<ion-card-content class="ion-padding">
-  <ion-item *ngFor="let noticia of gestionNoticias.getNoticias()">
-    <ion-item>
-    <ion-label style="text-transform:uppercase" >{{noticia.source.id}}</ion-label> </ion-item>
-  <ion-item>
-    <label>{{noticia.title}}</label>
-  </ion-item>
-  <ion-item> <label>
-    <img style="width: auto;height: auto;" src="{{noticia.urlToImage}}">
-  </label>
-  </ion-item>
-  <ion-item>
-
-    <label>{{noticia.description}}</label>
-  </ion-item>
-  <ion-item>
-    <a href ="{{noticia.url}}">Leer</a>
-  </ion-item>
-  </ion-item>
-</ion-card-content>
-</ion-card>-->
-<ion-card>
-  <ion-card-header>
+   <ion-card-header><!--Creo un encabezado ion-card-->
       <ion-card-title>Mis Noticias</ion-card-title>
   </ion-card-header></ion-card>
   
   
   <ion-content class="ion-padding">
-    <ion-card *ngFor="let noticia of gestionNoticias.articuloIndividual">
-      <ion-card-content>
+    <ion-card *ngFor="let noticia of gestionNoticias.articuloIndividual"> <!--Creo un ion-card para introducir la info-->
+      <ion-card-content><!--Creo ion card content para introducir info más detallada-->
       <ion-label style="text-transform:uppercase" >{{noticia.source.id}}</ion-label><p></p>
       
-      <ion-label>{{noticia.title}}</ion-label>
-      <!-- <ion-item>-->
+      <ion-label>{{noticia.title}}</ion-label><!--Muestro el title de las noticias-->
       <ion-label>
-        <ion-img src="{{noticia.urlToImage}}"></ion-img>
+        <ion-img src="{{noticia.urlToImage}}"></ion-img><!--Muestro la imagen de las noticias-->
       </ion-label>
-      <ion-label>{{noticia.description}} </ion-label>
+      <ion-label>{{noticia.description}} </ion-label><!--Muestro la descripción de las noticias-->
       <ion-label><br>
-        <a href ="{{noticia.url}}">Leer</a>
+        <a href ="{{noticia.url}}">Leer</a><!--Muestro la palabra leer con un enlace a expandir noticia-->
         
         <button ion-button icon-left>
-        <ion-icon name="trash-outline" (click)="onClick();borrar(noticia)"></ion-icon></button>
+        <!-- <ion-icon name="trash-outline" (click)="onClick();borrar(noticia)"></ion-icon></button> -->
+        <ion-icon name="trash-outline" (click)="presentarAlerta(noticia);"></ion-icon></button>
+
       </ion-label></ion-card-content></ion-card></ion-content>
       
-      <!-- </ion-item> 
-    <ion-item> <label>
-      <img style="width: auto;height: auto;" src="{{noticia.urlToImage}}">
-    </label>
-    </ion-item>
-    <ion-item>
-  
-      <label>{{noticia.description}}</label>
-    </ion-item>
-    <ion-item>
-      <a href ="{{noticia.url}}">Leer</a>
-    </ion-item>-->
+     

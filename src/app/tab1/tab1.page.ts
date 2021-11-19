@@ -31,9 +31,8 @@ export class Tab1Page implements OnInit{ //Declaro las variables de IArticulo
       //ejecutar función insertarArticulo que está en el servicio gestionNoticias 
       this.gestionNoticias.insertarArticulo(noticia.source, noticia.title, noticia.description, noticia.url, noticia.urlToImage, noticia.publishedAt);
       
-    } if(event.detail.checked=false){ //Si no está activado o es igual a false
-      this.gestionNoticias.checked="no";
-      console.log("meter en variable service NO"+this.gestionNoticias.checked)
+    } if(event.detail.checked=false){ //Si no está activado o es igual a false, que no haga nada
+      
       
       
     }

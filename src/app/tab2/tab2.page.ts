@@ -11,36 +11,11 @@ import {AlertController } from '@ionic/angular';
 })
 export class Tab2Page {
 
-  constructor(public gestionNoticias:GestionNoticiasService, private alerta:AlertController ) {}
-
-onClick(){
-  this.presentarAlerta();}
-  
-  //console.log(this.gestionNoticias.articuloIndividual)
-
-  //const user=this.gestionNoticias.articuloIndividual.find(user=>user.publishedAt==="2021-09-27T13:00:02Z");
-  
-  //console.log(this.gestionNoticias.articulo);
-  //let indice=this.gestionNoticias.articulo.indexOf(user);
-  //console.log(this.gestionNoticias.articulo);
-  //console.log(noticia);
-  //let indice=this.gestionNoticias.articulo.indexOf(noticia.publishedAt);
-  //console.log(indice)
-  //this.gestionNoticias.articuloIndividual.slice(indice,1);
-  //console.log(indice);
-  //noticia.slice(indice,1);
-  /*console.log(indice);
-  console.log(this.gestionNoticias.articuloIndividual);
-  this.gestionNoticias.articuloIndividual.slice(indice, 1);
-  console.log(this.gestionNoticias.articuloIndividual);*/
+  constructor(public gestionNoticias:GestionNoticiasService, private alerta:AlertController ) {} //Inyecto el controlador de alertas AlertController en el constructor del controlador y lo llamo alerta
 
 
-  //console.log(this.gestionNoticias.articuloIndividual.indexOf(noticia.publishedAt));
-  //console.log(noticia.publishedAt);
-  //console.log(this.gestionNoticias.articuloIndividual)
-
-async presentarAlerta() {
-  const alert = await this.alerta.create({
+async presentarAlerta(noticia) {
+  const alert = await this.alerta.create({ //Construyo un nuevo objeto alert llamando al la función create del objeto AlertController y les pasamos los parámetros que continúan
     header: 'Confirmar', //Encabezado del alert
     message: 'Borrar noticia?', //Mensaje que queremos que salga en el alert
     buttons: [
@@ -54,7 +29,7 @@ async presentarAlerta() {
       }, {
         text: 'Okay',
         handler: () => { //Función a ejecutar cuando el usuario de a ok
-          console.log('Confirm Okay');
+          this.gestionNoticias.borrar(noticia); //Llama a la función borrar que está dentro del servicio gestionNoticias
         }
       }
     ]
@@ -63,16 +38,6 @@ async presentarAlerta() {
   await alert.present();
 }
 
-borrar(noticia){
-  let noticiaEncontrada:IArticulo=this.gestionNoticias.articuloIndividual.find(function(cadaNoticia){return cadaNoticia.publishedAt==noticia.publishedAt}) //Valor es cada uno de las personas del array
-  console.log(noticiaEncontrada)
-  let indice=this.gestionNoticias.articuloIndividual.indexOf(noticiaEncontrada);
-  console.log("Este es el índice que borraré del array"+ indice);
-  this.gestionNoticias.articuloIndividual.slice(indice)
-  console.log("aqui abajo la noticia después de borrar")
-  console.log(this.gestionNoticias.articuloIndividual)
-
-}
 
 
 }

@@ -1,3 +1,6 @@
+//Creación de tres interfaces INoticias, IArticulo e IFuente que nos permite almacenar los datos de las noticias
+//Se ha realizado con el plugin json to js creando una carpeta mis-interfaces
+
 export interface INoticias {
   status: string;
   totalResults: number;
